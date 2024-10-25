@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     |--------------------------------------------------------------------------
     */
     Route::prefix('subscriptions')->name('subscriptions.')->group(function () {
+        Route::get('plans', [SubscriptionController::class, 'plans'])->name('plans');
         Route::post('change-plan', [SubscriptionController::class, 'changePlan'])->name('change-plan');
     });
 });

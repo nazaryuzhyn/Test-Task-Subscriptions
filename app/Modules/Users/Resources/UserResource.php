@@ -2,6 +2,7 @@
 
 namespace App\Modules\Users\Resources;
 
+use App\Modules\Subscriptions\Resources\SubscriptionResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -15,6 +16,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'subscription' => new SubscriptionResource($this->activeSubscription),
         ];
     }
 }
